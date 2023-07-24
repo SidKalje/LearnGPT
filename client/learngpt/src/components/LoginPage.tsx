@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import "../styles/LoginPageStyle.css";
 import {
@@ -19,8 +18,9 @@ function LoginPage() {
   const { userUID, setUserUID } = useContext(UserUID); // [1]
   const { userEmail, setUserEmail } = useContext(UserEmail); // [1]
   const { userDisplayName, setUserDisplayName } = useContext(UserDisplayName); // [1]
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  const test = () => {};
   const handleLogin = async (e: any) => {
     e.preventDefault();
     try {
@@ -36,24 +36,24 @@ function LoginPage() {
       setUserUID(user?.uid);
       setUserEmail(user?.email);
 
-      const db = getFirestore();
+      // const db = getFirestore();
 
-      if (user) {
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
+      // if (user) {
+      //   const docRef = doc(db, "users", user.uid);
+      //   const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data());
-          setUserDisplayName(docSnap.data().username);
-          // do something with displayName
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-      }
+      //   if (docSnap.exists()) {
+      //     console.log("Document data:", docSnap.data());
+      //     setUserDisplayName(docSnap.data().username);
+      //     // do something with displayName
+      //   } else {
+      //     // doc.data() will be undefined in this case
+      //     console.log("No such document!");
+      //   }
+      // }
 
       console.log(userDisplayName);
-      //navigate("/");
+      navigate("/homepage");
     } catch (error: any) {
       const errorMessage = error.message;
       console.log("Error happened:", errorMessage);
@@ -90,7 +90,11 @@ function LoginPage() {
           </div>
         </div>
         <button className="submit">Submit</button>
-        <p className="registerText">Dont have an account? Register here.</p>
+        <p className="registerText">
+          <Link to="/signup">
+            <u>Dont have an account? Register here.</u>
+          </Link>
+        </p>
       </form>
     </>
   );

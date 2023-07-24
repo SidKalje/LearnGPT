@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { auth } from "../firebase";
 import { useState, useEffect } from "react";
 import { Link, redirect, useNavigate } from "react-router-dom";
+import "../styles/LoginPageStyle.css";
 
 function Register() {
   const [password, setPassword] = useState("");
@@ -9,7 +10,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
-  const [passwordShows, setPasswordShows] = useState(false);
 
   const handleRegistration = async (e: any) => {
     e.preventDefault();
@@ -79,14 +79,38 @@ function Register() {
           <input
             className="main-input"
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={secondPassword}
+            onChange={(e) => setSecondPassword(e.target.value)}
           />
           <span className="highlight-span"></span>
-          <label className="lebal-email">Email</label>
+          <label className="lebal-email">Re-enter Password</label>
+        </div>
+        <div className="group">
+          <input
+            className="main-input"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <span className="highlight-span"></span>
+          <label className="lebal-email">Username</label>
+        </div>
+        <div className="group">
+          <input
+            className="main-input"
+            type="text"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <span className="highlight-span"></span>
+          <label className="lebal-email">Phone Number</label>
         </div>
         <button className="submit">Submit</button>
-        <p className="registerText">Already have an account? Login here.</p>
+        <p className="registerText">
+          <Link to="/">
+            <u>Dont have an account? Login here.</u>
+          </Link>
+        </p>
       </form>
     </>
   );

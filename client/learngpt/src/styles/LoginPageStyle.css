@@ -1,5 +1,9 @@
 .group {
   position: relative;
+  /* border-style:solid;
+  border-color: blue;
+  border-width: 3px;*/
+  margin-top: 30px; 
 }
 
 .form {
@@ -36,7 +40,7 @@
 }
 
 .container-1 {
-  padding-top: 30px;
+  /*padding-top: 30px;*/
 }
 
 .main-input {
