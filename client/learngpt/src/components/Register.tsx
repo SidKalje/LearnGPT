@@ -49,69 +49,71 @@ function Register() {
 
   return (
     <>
-      <form className="form" onSubmit={handleRegistration}>
-        <p>Register</p>
-        <div className="group">
-          <input
-            className="main-input"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <span className="highlight-span"></span>
-          <label className="lebal-email">Email</label>
-        </div>
-        <div className="container-1">
+      <div className="bg-black h-screen w-screen overflow-y-visible">
+        <form className="form" onSubmit={handleRegistration}>
+          <p>Register</p>
           <div className="group">
             <input
               className="main-input"
               type="text"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <span className="highlight-span"></span>
-            <label className="lebal-email">Password</label>
+            <label className="lebal-email">Email</label>
           </div>
-        </div>
-        <div className="group">
-          <input
-            className="main-input"
-            type="text"
-            value={secondPassword}
-            onChange={(e) => setSecondPassword(e.target.value)}
-          />
-          <span className="highlight-span"></span>
-          <label className="lebal-email">Re-enter Password</label>
-        </div>
-        <div className="group">
-          <input
-            className="main-input"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <span className="highlight-span"></span>
-          <label className="lebal-email">Username</label>
-        </div>
-        <div className="group">
-          <input
-            className="main-input"
-            type="text"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-          <span className="highlight-span"></span>
-          <label className="lebal-email">Phone Number</label>
-        </div>
-        <button className="submit">Submit</button>
-        <p className="registerText">
-          <Link to="/">
-            <u>Dont have an account? Login here.</u>
-          </Link>
-        </p>
-      </form>
+          <div className="container-1">
+            <div className="group">
+              <input
+                className="main-input"
+                type="text"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <span className="highlight-span"></span>
+              <label className="lebal-email">Password</label>
+            </div>
+          </div>
+          <div className="group">
+            <input
+              className="main-input"
+              type="text"
+              value={secondPassword}
+              onChange={(e) => setSecondPassword(e.target.value)}
+            />
+            <span className="highlight-span"></span>
+            <label className="lebal-email">Re-enter Password</label>
+          </div>
+          <div className="group">
+            <input
+              className="main-input"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <span className="highlight-span"></span>
+            <label className="lebal-email">Username</label>
+          </div>
+          <div className="group">
+            <input
+              className="main-input"
+              type="text"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <span className="highlight-span"></span>
+            <label className="lebal-email">Phone Number</label>
+          </div>
+          <button className="submit">Submit</button>
+          <p className="registerText">
+            <Link to="/">
+              <u>Dont have an account? Login here.</u>
+            </Link>
+          </p>
+        </form>
+      </div>
     </>
   );
 }
