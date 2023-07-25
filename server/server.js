@@ -30,8 +30,8 @@ app.post("/api/gpt", async (req, res) => {
   client
     .post("https://api.openai.com/v1/completions", params)
     .then((result) => {
-      const resultArray = result.data.choices[0].text.split("#");
-      const finalResultArray = resultArray.map((element) => element.split("$"));
+      const resultArray = result.data.choices[0].text.split("#"); // Splitting the result into an array of steps
+      const finalResultArray = resultArray.map((element) => element.split("$")); //Parsing the keywords out of it
       res.send(finalResultArray);
     })
     .catch((err) => {
