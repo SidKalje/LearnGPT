@@ -27,7 +27,7 @@ app.get("/api/gpt", async (req, res) => {
     .post("https://api.openai.com/v1/completions", params)
     .then((result) => {
       const resultArray = result.data.choices[0].text.split("#");
-      const finalResultArray = resultArray.map((element) => element.split("$"));
+      const finalResultArray = result Array.map((element) => element.split("$"));
       res.send(resultArray);
       res.send(finalResultArray);
     })
