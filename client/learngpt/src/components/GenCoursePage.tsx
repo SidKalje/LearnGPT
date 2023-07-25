@@ -1,6 +1,16 @@
 import React, { useState } from "react";
+import "../index.css";
 import "../styles/GenCoursePageStyles.css";
 import axios from "axios";
+import { Input } from "../shadcncomponents/Input";
+import { Switch } from "../shadcncomponents/Switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../shadcncomponents/Select";
 
 function GenCoursePage() {
   const [GPTResponse, setGPTResponse] = useState("");
@@ -12,22 +22,28 @@ function GenCoursePage() {
     console.log(response.data);
     setGPTResponse(response.data);
   };
-
+  /* fields to have:
+  - input field for concept(character limit)
+  - input field for overall subject, but pick from a dropdown menu
+  - input field for what student struggles with, wants to learn(character limit)
+  - input field for what student already knows(character limit)
+   */
   return (
-    <div>
-      GenCoursePage
-      <button onClick={getGPTResponse} className="standardButton">
-        Generate Text
-      </button>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-      />
-      <div>{GPTResponse}</div>
-    </div>
+    <>
+      <div className="flex flex-col px-16 items-center align-middle justify-center w-screen h-screen">
+        <Input />
+        <Select>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </>
   );
 }
 

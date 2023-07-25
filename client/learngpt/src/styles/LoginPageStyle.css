@@ -56,7 +56,8 @@
 
 .main-input:focus {
   outline: none;
-  border-bottom-color: #42ff1c;
+  /*border-bottom-color: #1ccaff;*/
+  border-bottom-color: #1ccaff;
 }
 
 .lebal-email {
@@ -76,7 +77,7 @@
 .main-input:valid ~ .lebal-email {
   top: -20px;
   font-size: 14px;
-  color: #42ff1c;
+  color: #1ccaff;
 }
 
 .highlight-span {
@@ -96,7 +97,7 @@
 
 @keyframes input-focus {
   from {
-    background: #42ff1c;
+    background: #1ccaff;
   }
 
   to {
@@ -108,9 +109,9 @@
   margin-top: 1.2rem;
   padding: 10px 20px;
   border-radius: 10px;
-  color: #42ff1c;
+  color: #1ccaff;
   border-style: solid;
-  border-color: #42ff1c;
+  border-color: #1ccaff;
   border-width: 2px;
 }
 
