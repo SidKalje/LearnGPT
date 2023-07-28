@@ -31,8 +31,8 @@ app.post("/api/gpt", async (req, res) => {
     .then((result) => {
       const stepsKeywords = result.data.choices[0].text.split("@"); // Splitting the result into an array of steps
       //map through the array of steps and keywords, and split the big array into 2 small arrays. one for steps and one for keywords. the order goes steps, keywords, steps, etc.
-      const finalResultArray = stepsKeywords.map((step) => {
-        const [step, keywordsString] = item.split("#");
+      const finalResultArray = stepsKeywords.map((stepIndividual) => {
+        const [step, keywordsString] = stepIndividual.split("#");
         const keywords = keywordsString.split("$").filter(Boolean);
         return [step, keywords];
       });
